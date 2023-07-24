@@ -33,3 +33,11 @@ Movies is a microservice application with REST APIs exposed to  below functional
 * OpenAPI-3 is used for the documentation of the APIs.
 * Once the Application is started the API documentation can be accessed using the below localhost URL
 - [Swagger Documentation](http://localhost:8080/assignment/swagger-ui/index.html#/)
+
+## API Endpoint Details
+
+Method.      | Endpoint Details                   | Remarks                                                                                            | 
+------------ |------------------------------------|----------------------------------------------------------------------------------------------------|
+GET | /assignment/v1/movies/best-picture | Returns whether a movie won best picture oscar or not based on given title.                        | 
+PATCH | /assignment/v1/movies/ratings      | Updates user rating for a movie based on given title and rating value and returns status code 204. | 
+GET | /assignment/v1/movies/top-rated    | Fetched top 10 rated movies ordered by box office collections in Descending order.                 | 
