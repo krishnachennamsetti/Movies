@@ -41,7 +41,7 @@ public class MoviesServiceImplTest {
     @Mock
     MoviesClient client;
 
-    private String movie = "Titanic";
+    private final String movie = "Titanic";
 
 
     @Test
@@ -95,6 +95,16 @@ public class MoviesServiceImplTest {
         entity.setTitle(movie);
         entity.setBoxOffice(123456788);
         when(moviesRepository.findTop10ByOrderByRatingDescBoxOfficeDesc()).thenReturn(List.of(entity));
+        assertNotNull(moviesServiceImpl.fetchTopRatedMovies());
+    }
+
+    @Test
+    void testFetchTopRatedMoviesEmpty(){
+        MoviesEntity entity = new MoviesEntity();
+        entity.setRating(8);
+        entity.setTitle(movie);
+        entity.setBoxOffice(123456788);
+        when(moviesRepository.findTop10ByOrderByRatingDescBoxOfficeDesc()).thenReturn(null);
         assertNotNull(moviesServiceImpl.fetchTopRatedMovies());
     }
 
