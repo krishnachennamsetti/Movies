@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "64be5c835d5f28fad84b90f2"
+  },
+  "nominee": "titanic",
+  "category": "Best Picture",
+  "year": "1998",
+  "won": "YES"
+},
+{
+  "_id": {
+    "$oid": "64c014cb5d5f28fad84b9100"
+  },
+  "nominee": "The Hurt Locker",
+  "category": "Best Picture",
+  "year": "2009",
+  "won": "YES"
+},
+{
+  "_id": {
+    "$oid": "64c014ea5d5f28fad84b9102"
+  },
+  "nominee": "Slumdog Millionaire",
+  "category": "Best Picture",
+  "year": "2008",
+  "won": "YES"
+},
+{
+  "_id": {
+    "$oid": "64c015655d5f28fad84b9104"
+  },
+  "nominee": "Avatar",
+  "category": "Best Picture",
+  "year": "2009",
+  "won": "NO"
+},
+{
+  "_id": {
+    "$oid": "64c0159e5d5f28fad84b9106"
+  },
+  "nominee": "Inception",
+  "category": "Best Picture",
+  "year": "2010",
+  "won": "NO"
+}]

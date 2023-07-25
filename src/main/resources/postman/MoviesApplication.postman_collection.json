@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "0aa6811f-febe-4aba-9f06-b6b40a68bf19",
+		"name": "Movies Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/assignment/v1/movies/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assignment",
+						"v1",
+						"movies",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Give rating to movie",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5MDMwODEwOCwiZXhwIjoxNjkwMzI2MTA4fQ.UHbUUObUwr8sjFpPfRTqQu7JrQktdsZg69V____Nqbs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 9.7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/assignment/v1/movies/titanic/ratings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assignment",
+						"v1",
+						"movies",
+						"titanic",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Top 10 rated movies based on box office value",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5MDMwODEwOCwiZXhwIjoxNjkwMzI2MTA4fQ.UHbUUObUwr8sjFpPfRTqQu7JrQktdsZg69V____Nqbs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/assignment/v1/movies/top-rated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assignment",
+						"v1",
+						"movies",
+						"top-rated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Oscar best picture",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5MDMwODU3OCwiZXhwIjoxNjkwMzI2NTc4fQ.4o6CN9Q52Sm6S8fG_OxpAt7HNoafQtBwjRBgmp5Kbro",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/assignment/v1/movies/titanic/best-picture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assignment",
+						"v1",
+						"movies",
+						"titanic",
+						"best-picture"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

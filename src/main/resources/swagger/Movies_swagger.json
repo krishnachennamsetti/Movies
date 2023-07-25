@@ -1,0 +1,304 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Movies Application",
+        "description": "Movies is a microservice application designed to check whether movie won best picture oscar, give rating and fetch the top 10 rated movies based on their box office value"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/assignment",
+            "description": "Generated server url"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Movies",
+            "description": "Movies API endpoints"
+        },
+        {
+            "name": "Token",
+            "description": "Token API endpoints"
+        }
+    ],
+    "paths": {
+        "/v1/movies/authenticate": {
+            "post": {
+                "tags": [
+                    "Token"
+                ],
+                "operationId": "authenticate",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TokenRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Token generation successful",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Token generation failed",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MoviesError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/movies/{title}/ratings": {
+            "patch": {
+                "tags": [
+                    "Movies"
+                ],
+                "summary": "Gives rating for a movie based on the title",
+                "description": "Gives rating for a movie based on the title",
+                "operationId": "rateMovie",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "path",
+                        "description": "Name of the movie",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Fight Club"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MovieRatingRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "Movie not found",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MoviesError"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Rating updated successfully"
+                    }
+                }
+            }
+        },
+        "/v1/movies/{title}/best-picture": {
+            "get": {
+                "tags": [
+                    "Movies"
+                ],
+                "summary": "Checks if a movie won Best Picture Oscar or not",
+                "description": "Checks if a movie won Best Picture Oscar or not",
+                "operationId": "checkBestPicture",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "path",
+                        "description": "Name of the movie",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Fight Club"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Best picture response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BestPictureResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Movie not found",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MoviesError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/movies/top-rated": {
+            "get": {
+                "tags": [
+                    "Movies"
+                ],
+                "summary": "Fetching Top rated movies based on box office",
+                "description": "Fetching Top rated movies based on box office",
+                "operationId": "fetchTopRatedMovies",
+                "responses": {
+                    "400": {
+                        "description": "Movies Error",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MoviesError"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Fetch successful",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Movies"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "TokenRequest": {
+                "required": [
+                    "password",
+                    "username"
+                ],
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "maxLength": 50,
+                        "minLength": 1,
+                        "pattern": "^[a-zA-Z0-9_]*$",
+                        "type": "string",
+                        "description": "username of user",
+                        "example": "admin"
+                    },
+                    "password": {
+                        "maxLength": 50,
+                        "minLength": 1,
+                        "pattern": "^[a-zA-Z0-9_]*$",
+                        "type": "string",
+                        "description": "password of user",
+                        "example": "admin123"
+                    }
+                }
+            },
+            "TokenResponse": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "description": "Generated JWT",
+                        "example": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWNpcGVzYWRtaW4iLCJpYXQiOjE2NTgxNjYxNDksImV4cCI6MTY1ODM0NjE0OX0.K9xOGOzVYSO7myuAPoXOfMQdSKTjz0E_Kwg4-Co8X0k"
+                    }
+                }
+            },
+            "MoviesError": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "Type of Error TECHNICAL/FUNCTIONAL",
+                        "example": "TECHNICAL"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Error code for each specific error",
+                        "example": "ERROR_TECHNICAL_FAILURE"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Error message description",
+                        "example": "Technical Failure"
+                    }
+                }
+            },
+            "MovieRatingRequest": {
+                "required": [
+                    "rating"
+                ],
+                "type": "object",
+                "properties": {
+                    "rating": {
+                        "type": "number",
+                        "description": "user rating for the movie",
+                        "format": "double",
+                        "example": 9.5
+                    }
+                }
+            },
+            "BestPictureResponse": {
+                "type": "object",
+                "properties": {
+                    "bestPicture": {
+                        "type": "boolean",
+                        "description": "Movie won best picture oscar or not",
+                        "example": true
+                    }
+                }
+            },
+            "Movie": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the movie",
+                        "example": "Titanic"
+                    },
+                    "boxOffice": {
+                        "type": "number",
+                        "description": "Box-office value of the movie",
+                        "format": "double",
+                        "example": 23456666
+                    },
+                    "rating": {
+                        "type": "number",
+                        "description": "User rating of the movie",
+                        "format": "double",
+                        "example": 9.5
+                    }
+                }
+            },
+            "Movies": {
+                "type": "object",
+                "properties": {
+                    "movies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Movie"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

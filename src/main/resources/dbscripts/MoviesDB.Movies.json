@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "64be45fe5d5f28fad84b90e9"
+  },
+  "title": "Titanic",
+  "boxOffice": 674292608,
+  "rating": 9.7
+},
+{
+  "_id": {
+    "$oid": "64be46345d5f28fad84b90eb"
+  },
+  "title": "Avengers",
+  "boxOffice": 623357910,
+  "rating": 8.5
+},
+{
+  "_id": {
+    "$oid": "64be5a535d5f28fad84b90ed"
+  },
+  "title": "God Father",
+  "boxOffice": 20045679,
+  "rating": 9
+},
+{
+  "_id": {
+    "$oid": "64be5a735d5f28fad84b90ef"
+  },
+  "title": "Avatar",
+  "boxOffice": 974292608,
+  "rating": 9
+}]
