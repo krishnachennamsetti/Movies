@@ -15,5 +15,10 @@ public interface TokenService {
      */
     UsersEntity validateUserDetails(TokenRequest request) throws MoviesException;
 
+    /**
+     * This method check whether uer exists based on username or not
+     * @param username
+     * @return true if user exists and false if doesn't
+     */
     boolean validateUserExists(String username);
 }
