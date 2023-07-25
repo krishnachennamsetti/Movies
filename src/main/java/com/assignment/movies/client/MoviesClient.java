@@ -3,6 +3,7 @@ package com.assignment.movies.client;
 import com.assignment.movies.constants.MoviesConstants;
 import com.assignment.movies.model.MovieOmdbResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -11,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class MoviesClient {
 
     @Value("${movies.omdb.url:''}")
@@ -25,6 +27,7 @@ public class MoviesClient {
      * @return
      */
     public MovieOmdbResponse fetchMovieByTitle(String title){
+        log.info("Fetching the movie details from omdb for title :: {}",title);
         MultiValueMap<String,String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add(MoviesConstants.API_KEY,apiKey);
         queryParams.add(MoviesConstants.MOVIE_TITLE,title);

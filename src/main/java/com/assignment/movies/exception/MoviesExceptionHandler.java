@@ -12,38 +12,18 @@ import java.util.Objects;
 
 @ControllerAdvice
 public class MoviesExceptionHandler {
-    /**
-     * This method is used to frame the generic error
-     *
-     * @param exception
-     * @param status
-     * @return
-     */
+
     private ResponseEntity<MoviesError> frameGenericError(Exception exception, HttpStatus status) {
         MoviesErrorEnum error = MoviesErrorEnum.TECHNICAL_ERROR;
         MoviesError moviesError = new MoviesError(error.getType(), error.getCode(), exception.getMessage());
         return ResponseEntity.status(status).body(moviesError);
     }
 
-    /**
-     * This method is used to frame the application related exceptions
-     *
-     * @param exception
-     * @param status
-     * @return
-     */
     private ResponseEntity<MoviesError> frameApplicationError(MoviesException exception, HttpStatus status) {
         MoviesError error = new MoviesError(exception.getType(), exception.getCode(), exception.getMessage());
         return ResponseEntity.status(status).body(error);
     }
 
-    /**
-     * This method is used to frame the application related exceptions
-     *
-     * @param exception
-     * @param status
-     * @return
-     */
     private ResponseEntity<MoviesError> frameRuntimeApplicationError(MoviesRuntimeException exception,
                                                                       HttpStatus status) {
         MoviesError error = new MoviesError(exception.getType(), exception.getCode(), exception.getMessage());

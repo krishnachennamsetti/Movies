@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MoviesConstants {
 
-
     public static final String API_KEY= "apikey";
 
     public static final String MOVIE_TITLE = "t";

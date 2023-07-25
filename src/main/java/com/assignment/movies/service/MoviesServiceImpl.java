@@ -40,6 +40,7 @@ public class MoviesServiceImpl implements MoviesService {
 
     @Override
     public BestPictureResponse checkOscarBestPicture(String title) throws MoviesException {
+        log.info("Checking Oscar best picture winner for movie :: {}",title);
         BestPictureResponse bestPicture = null;
         MovieOmdbResponse response =  client.fetchMovieByTitle(title);
         if(Objects.nonNull(response) && title.equalsIgnoreCase(response.getTitle())){
@@ -59,6 +60,7 @@ public class MoviesServiceImpl implements MoviesService {
 
     @Override
     public void rateMovie(String title, double rating) throws MoviesException {
+        log.info("Updating user rating for movie :: {} with rating :: {}",title,rating);
         Optional<MoviesEntity> entity = moviesRepository.findByTitleIgnoreCase(title);
         if(Objects.nonNull(entity)&& entity.isPresent()){
             MoviesEntity updatedEntity = entity.get();
@@ -73,10 +75,10 @@ public class MoviesServiceImpl implements MoviesService {
 
     @Override
     public Movies fetchTopRatedMovies() {
-        Movies movies = new Movies();
         List<MoviesEntity> topRatedMovies = moviesRepository.findTop10ByOrderByRatingDescBoxOfficeDesc();
-        movies.setMovies(CollectionUtils.isEmpty(topRatedMovies) ? new ArrayList<>() : moviesMapper.mapMoviesEntityToMovies(topRatedMovies));
-        return movies;
+        return Movies.builder().movies(CollectionUtils.isEmpty(topRatedMovies) ?
+                new ArrayList<>() : moviesMapper.mapMoviesEntityToMovies(topRatedMovies)).build();
     }
+
 
 }

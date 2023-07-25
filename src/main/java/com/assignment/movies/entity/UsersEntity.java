@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UsersEntity {
 
     @Id
-    @Schema(description = "Unique movie id",example = "84898345896796798")
+    @Schema(description = "Unique id",example = "84898345896796798")
     private String id;
 
     @Schema(description = "username of the customer",example = "admin")

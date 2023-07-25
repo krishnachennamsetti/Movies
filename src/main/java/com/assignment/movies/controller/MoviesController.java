@@ -4,7 +4,6 @@ package com.assignment.movies.controller;
 import com.assignment.movies.exception.MoviesError;
 import com.assignment.movies.exception.MoviesException;
 import com.assignment.movies.model.BestPictureResponse;
-import com.assignment.movies.model.Movie;
 import com.assignment.movies.model.MovieRatingRequest;
 import com.assignment.movies.model.Movies;
 import com.assignment.movies.service.MoviesService;
