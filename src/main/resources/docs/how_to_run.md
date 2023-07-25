@@ -27,3 +27,14 @@ mongodb://localhost:27017/MoviesDB
 mvn spring-boot:run
 ```
 * The application will be started on default port 8080
+
+## Deploying the application to Production
+
+* The jar file name FavouriteRecipes-1.0.jar will be created under the target folder
+* Below mongo DB configuration needs to be updated in Production environment
+```shell
+mongbdb://username:password@hostname:portname/dbname
+```
+* All the secrets and sensitive keys can be stored in vault.
+* JWT secret will be stored as .key file.
+* Cloud containarization frameworks can be used to deploy the Application
