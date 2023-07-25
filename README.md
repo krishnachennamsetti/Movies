@@ -33,6 +33,10 @@ Movies is a microservice application with REST APIs exposed to  below functional
 * OpenAPI-3 is used for the documentation of the APIs.
 * Once the Application is started the API documentation can be accessed using the below localhost URL
 - [Swagger Documentation](http://localhost:8080/assignment/swagger-ui/index.html#/)
+* Swagger documentation view appears as below
+
+<img width="1679" alt="Screenshot 2023-07-25 at 10 19 53 PM" src="https://github.com/krishnachennamsetti/Movies/assets/39440188/5b37e48e-2a88-4e7d-bfc8-ae66f3451bea">
+
 
 ## API Endpoint Details
 
@@ -83,6 +87,10 @@ mvn test
 ```shell
 mvn clean install
 ```
+* sample Jacoco code coverage appears as below
+
+<img width="1326" alt="Screenshot 2023-07-25 at 11 25 34 PM" src="https://github.com/krishnachennamsetti/Movies/assets/39440188/8ec4858d-6a95-4095-b32b-89d511444ce0">
+
 
 ## Future Enhancements
 
