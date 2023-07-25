@@ -29,9 +29,9 @@ public class MoviesController {
     private final MoviesService moviesService;
 
     @GetMapping(value = "/{title}/best-picture")
-    @Operation(summary = "Checking a movie won Best Picture Oscar or not", description = "Checking a movie won Best Picture Oscar or not")
+    @Operation(summary = "Checks if a movie won Best Picture Oscar or not", description = "Checks if a movie won Best Picture Oscar or not")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Best picture response", content = @Content(schema = @Schema(implementation = Movie.class))),
+            @ApiResponse(responseCode = "200", description = "Best picture response", content = @Content(schema = @Schema(implementation = BestPictureResponse.class))),
             @ApiResponse(responseCode = "404", description = "Movie not found", content = @Content(schema = @Schema(implementation = MoviesError.class))) })
     public ResponseEntity<BestPictureResponse> checkBestPicture(
             @PathVariable("title") @Parameter(required = true, example = "Fight Club", description = "Name of the movie") String title) throws MoviesException {
@@ -41,11 +41,11 @@ public class MoviesController {
 
 
     @PatchMapping(path = "/{title}/ratings", consumes = "application/json")
-    @Operation(summary = "Give rating for the movie", description = "Give rating for the movie")
+    @Operation(summary = "Gives rating for a movie based on the title", description = "Gives rating for a movie based on the title")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Rating updated successfully"),
             @ApiResponse(responseCode = "404", description = "Movie not found", content = @Content(schema = @Schema(implementation = MoviesError.class))) })
-    public ResponseEntity<Void> rateMovie(@PathVariable("title") String title, @RequestBody MovieRatingRequest ratingRequest) throws MoviesException {
+    public ResponseEntity<Void> rateMovie(@PathVariable("title") @Parameter(required = true, example = "Fight Club", description = "Name of the movie")  String title, @RequestBody MovieRatingRequest ratingRequest) throws MoviesException {
         moviesService.rateMovie(title,ratingRequest.getRating());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

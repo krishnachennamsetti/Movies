@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public interface MoviesRepository extends MongoRepository<MoviesEntity, String> {
 
-
   @Query("{'title' : { $regex:?0, $options:'i'} }")
   Optional<MoviesEntity> findByTitleIgnoreCase(String title);
 

@@ -17,5 +17,6 @@ public class MoviesConstants {
     public static final String CONSTANT_YES = "YES";
 
     public static final String REGEX_AUTH = "^[a-zA-Z0-9_]*$";
+
     public static final String CONSTANT_NO = "NO";
 }
