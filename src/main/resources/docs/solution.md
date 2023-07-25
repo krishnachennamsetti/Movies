@@ -5,17 +5,17 @@ Movies is a microservice application with REST APIs exposed to  below functional
 2) Allows users to give rating for a specific movie.
 3) Fetch the Top 10 rated movies based on their Box Office performance
 
-## Tech stack and plugins used for Devlopment
+## Tech stack and plugins used for Development
 
 
 - [JDK 17](https://www.oracle.com/java/technologies/downloads/#java17)
 - [Springboot version 3.1.0](https://spring.io/projects/spring-boot)
 - [Apache Maven](https://maven.apache.org)
-- [Mongo DB](https://www.mongodb.com)
+- [MongoDB](https://www.mongodb.com)
 - [REST webservices](https://spring.io/guides/gs/rest-service/)
 - [JWT](https://jwt.io/)
 - [JACOCO Plugin](https://www.eclemma.org/jacoco/)
-- [OpenAPI-3](https://swagger.io/specification/) 
+- [Springdoc OpenAPI](https://swagger.io/specification/) 
 
 ## API Layer and Authentication Mechanism
 
@@ -38,6 +38,6 @@ Movies is a microservice application with REST APIs exposed to  below functional
 
 Method.      | Endpoint Details                   | Remarks                                                                                            | 
 ------------ |------------------------------------|----------------------------------------------------------------------------------------------------|
-GET | /assignment/v1/movies/best-picture | Returns whether a movie won best picture oscar or not based on given title.                        | 
-PATCH | /assignment/v1/movies/ratings      | Updates user rating for a movie based on given title and rating value and returns status code 204. | 
-GET | /assignment/v1/movies/top-rated    | Fetched top 10 rated movies ordered by box office collections in Descending order.                 | 
+GET          | /assignment/v1/movies/best-picture | Returns whether a movie won best picture oscar or not based on given title.                        | 
+PATCH        | /assignment/v1/movies/ratings      | Updates user rating for a movie based on given title and rating value and returns status code 204. | 
+GET          | /assignment/v1/movies/top-rated    | Fetched top 10 rated movies ordered by box office collections in Descending order.                 | 
