@@ -5,6 +5,13 @@ Movies is a microservice application with REST APIs exposed to  below functional
 2) Allows users to give rating for a specific movie.
 3) Fetch the Top 10 rated movies based on their Box Office performance
 
+## Architecture Overview
+
+This is an application built using microservices architecture with Java, Springboot, REST web services, and Mongo DB. Below is the architectural system design UML diagram explaining the end-to-end flow.
+
+<img width="908" alt="solution_diagarm" src="https://github.com/krishnachennamsetti/Movies/assets/39440188/418f8fd2-0ecf-46fa-9455-b4718314f2ea">
+
+
 ## Tech stack and plugins used for Development
 
 
