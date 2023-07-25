@@ -1,4 +1,4 @@
-## Assumptions
+## Assumptions: 
 
 ####  During the development of this assignment I have made following assumptions to proceed with my task:
 

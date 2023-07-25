@@ -1,4 +1,4 @@
-## TODO (or) Future Enhancements
+## Future Enhancements
 
 * API authentication can be replaced with Oauth2 by using client id, client secret and Authorization server for generating the token.
 * Caching can be implemented for retrieving the master data.

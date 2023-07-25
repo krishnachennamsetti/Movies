@@ -1,4 +1,4 @@
-## Scaling of Application
+## Scaling the Application
 
 Scaling an application from handling 100 users per day to 10,000,000 users per day with the same quality of service can be a challenging task as number of users grow the traffic will be increased and system needs to handle the load and process the data. By implementing few of the below strategies we can be successfully achieve this:
 

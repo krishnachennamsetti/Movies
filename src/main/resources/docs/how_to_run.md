@@ -1,4 +1,4 @@
-For building and running the application you need:
+## For building and running the application you need:
 
 - [JDK 17](https://www.oracle.com/java/technologies/downloads/#java17)
 - [Apache Maven](https://maven.apache.org)
