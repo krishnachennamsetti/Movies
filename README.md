@@ -85,7 +85,7 @@ mvn spring-boot:run
 
 ## Deploying the application to Production
 
-* The jar file name FavouriteRecipes-1.0.jar will be created under the target folder
+* The jar file name Movies-1.0.jar will be created under the target folder
 * Below mongo DB configuration needs to be updated in Production environment
 ```shell
 mongbdb://username:password@hostname:portname/dbname
